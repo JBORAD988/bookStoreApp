@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 
 export class PublicComponent {
 
-  bookId: number=1200;
-  authorId: number = 101;
+  bookId: number=101;
+  // bookId: string='55';  and in code we use + to convert strings in to number
+  authorId: number = 11;
 
 }
