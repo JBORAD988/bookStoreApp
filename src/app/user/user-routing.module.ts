@@ -6,7 +6,8 @@ import { DeleteBookComponent } from './components/delete-book/delete-book.compon
 
 const routes: Routes = [
   {
-    path: 'user',
+    // path: 'user',
+    path: 'user/:userId',
     component: UserComponent,
     children: [
       { path: 'add-book', component: AddBookComponent },
