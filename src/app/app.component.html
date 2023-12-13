@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 
 <div>
-  <a href="/about-us">About Us</a>
-  <br />
-  <a href="/how-it-works"> how-it-works </a>
-  <br />
+  <a routerLink="/about-us">About Us</a>
+
+  <a routerLink="/how-it-works"> how-it-works </a>
+
   <a href="/auth/login"> login </a>
-  <br />
-  <a href="/auth/signup"> signUp </a>
-  <br />
+
+  <a routerLink="/auth/signup"> signUp </a>
+
   <a href="/auth/change-password"> Change password </a>
+
+  <a routerLink="/public/all-books"> All Books </a>
+
+<!--  <a routerLink="/public/book-details/120/author/11">Book Details For App</a>-->
+
 </div>
 <router-outlet></router-outlet>
