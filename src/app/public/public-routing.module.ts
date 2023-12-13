@@ -12,8 +12,8 @@ const routes: Routes = [
     component: PublicComponent,
     children: [
       { path: 'all-books', component: AllBooksComponent },
-      // { path: 'book-details/:id', component: BookDetailsComponent },
-      { path: 'book-details', component: BookDetailsComponent },
+      { path: 'book-details/:id', component: BookDetailsComponent },
+      // { path: 'book-details', component: BookDetailsComponent },
       { path: 'home', component: HomeComponent },
     ],
   },
