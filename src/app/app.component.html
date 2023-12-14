@@ -5,7 +5,12 @@
 
   <a routerLink="/how-it-works"> how-it-works </a>
 
-  <a routerLink="/auth/login"> login </a>
+  <a
+    routerLink="/auth/login"
+    [queryParams]="{ name: 'Jay', email: 'Jay@gmail.com', id: '3603' }"
+  >
+    login
+  </a>
 
   <a routerLink="/auth/signup"> signUp </a>
 
@@ -13,7 +18,6 @@
 
   <a routerLink="/public/all-books"> All Books </a>
 
-<!--  <a routerLink="/public/book-details/120/author/11">Book Details For App</a>-->
-
+  <!--  <a routerLink="/public/book-details/120/author/11">Book Details For App</a>-->
 </div>
 <router-outlet></router-outlet>
