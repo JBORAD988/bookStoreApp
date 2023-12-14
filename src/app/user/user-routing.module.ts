@@ -11,7 +11,7 @@ const routes: Routes = [
     component: UserComponent,
     children: [
       { path: 'add-book', component: AddBookComponent },
-      { path: 'delete-book', component: DeleteBookComponent },
+      { path: 'delete-book', component: DeleteBookComponent }
     ],
   },
 ];
