@@ -1,5 +1,5 @@
 import {Component, OnInit ,} from '@angular/core';
-import { TimelineMax, TweenMax } from 'gsap';
+// import { TimelineMax, TweenMax } from 'gsap';
 
 @Component({
   selector: 'app-not-found',

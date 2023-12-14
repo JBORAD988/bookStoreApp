@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "bookStoreApp:build:production"
+              "browserTarget": "bookStoreApp:build:production"
             },
             "development": {
-              "buildTarget": "bookStoreApp:build:development"
+              "browserTarget": "bookStoreApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,9 +76,10 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "bookStoreApp:build"
-          }
+            "browserTarget": "bookStoreApp:build"
+      }
         },
+
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
