@@ -5,9 +5,6 @@ import { AppComponent } from './app.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
 import { AuthComponent } from './auth/auth.component';
-import {AuthModule} from "./auth/auth.module";
-import { UserModule } from './user/user.module';
-import {PublicModule} from "./public/public.module";
 import {SharedModule} from "./shared/shared.module";
 
 
@@ -21,9 +18,9 @@ import {SharedModule} from "./shared/shared.module";
   ],
   imports: [
     BrowserModule,
-    AuthModule,
-    UserModule,
-    PublicModule,
+    // AuthModule,
+    // UserModule,
+    // PublicModule,
     SharedModule,
     AppRoutingModule
   ],
