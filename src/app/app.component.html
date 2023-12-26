@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <div>
+  <app-toolbar></app-toolbar>
 <!--  <a routerLink="/about-us">About Us</a>-->
 
 <!--  <a routerLink="/how-it-works"> how-it-works </a>-->
@@ -21,30 +22,30 @@
   <!--  <a routerLink="/public/book-details/120/author/11">Book Details For App</a>-->
 
 
-  <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true" [routerLink]="['/home']">Home</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link rounded-5" id="About-us" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/about-us']">About Us</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link rounded-5" id="how-it-works" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/how-it-works']">how-it-works</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link rounded-5" id="login" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"  [routerLink]="['/auth/login']"
-              [queryParams]="{ name: 'Jay', email: 'Jay@gmail.com', id: '3603' }" >login</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link rounded-5" id="signup" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/auth/signup']">signUp</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link rounded-5" id="change-password" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/auth/change-password']">Change password</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link rounded-5" id="All-Books" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/public/all-books']">All Books</button>
-    </li>
-  </ul>
+<!--  <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="&#45;&#45;bs-nav-link-color: var(&#45;&#45;bs-white); &#45;&#45;bs-nav-pills-link-active-color: var(&#45;&#45;bs-primary); &#45;&#45;bs-nav-pills-link-active-bg: var(&#45;&#45;bs-white);">-->
+<!--    <li class="nav-item" role="presentation">-->
+<!--      <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true" [routerLink]="['/home']">Home</button>-->
+<!--    </li>-->
+<!--    <li class="nav-item" role="presentation">-->
+<!--      <button class="nav-link rounded-5" id="About-us" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/about-us']">About Us</button>-->
+<!--    </li>-->
+<!--    <li class="nav-item" role="presentation">-->
+<!--      <button class="nav-link rounded-5" id="how-it-works" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/how-it-works']">how-it-works</button>-->
+<!--    </li>-->
+<!--    <li class="nav-item" role="presentation">-->
+<!--      <button class="nav-link rounded-5" id="login" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"  [routerLink]="['/auth/login']"-->
+<!--              [queryParams]="{ name: 'Jay', email: 'Jay@gmail.com', id: '3603' }" >login</button>-->
+<!--    </li>-->
+<!--    <li class="nav-item" role="presentation">-->
+<!--      <button class="nav-link rounded-5" id="signup" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/auth/signup']">signUp</button>-->
+<!--    </li>-->
+<!--    <li class="nav-item" role="presentation">-->
+<!--      <button class="nav-link rounded-5" id="change-password" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/auth/change-password']">Change password</button>-->
+<!--    </li>-->
+<!--    <li class="nav-item" role="presentation">-->
+<!--      <button class="nav-link rounded-5" id="All-Books" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" [routerLink]="['/public/all-books']">All Books</button>-->
+<!--    </li>-->
+<!--  </ul>-->
 
 </div>
 <router-outlet></router-outlet>
