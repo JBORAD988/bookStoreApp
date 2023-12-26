@@ -30,7 +30,10 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "@angular/material/prebuilt-themes/indigo-pink.css",
+=======
+>>>>>>> d3ff645 (initial commit)
               "src/styles.scss"
             ],
             "scripts": []
@@ -78,9 +81,14 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "bookStoreApp:build"
+<<<<<<< HEAD
       }
         },
 
+=======
+          }
+        },
+>>>>>>> d3ff645 (initial commit)
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -95,7 +103,10 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "@angular/material/prebuilt-themes/indigo-pink.css",
+=======
+>>>>>>> d3ff645 (initial commit)
               "src/styles.scss"
             ],
             "scripts": []
@@ -103,8 +114,11 @@
         }
       }
     }
+<<<<<<< HEAD
   },
   "cli": {
     "analytics": false
+=======
+>>>>>>> d3ff645 (initial commit)
   }
 }
