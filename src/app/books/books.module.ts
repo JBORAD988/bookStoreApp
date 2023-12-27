@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {PublicRoutingModule} from "./public-routing.module";
+import {BooksRoutingModule} from "./books-routing.module";
 import {BookDetailsComponent} from "./components/book-details/book-details.component";
-import {HomeComponent} from "./components/home/home.component";
-import {PublicComponent} from "./public.component";
+// import {HomeComponent} from "../public-components/home/home.component";
+import {BooksComponent} from "./books.component";
 import {AllBooksComponent} from "./components/all-books/all-books.component";
 
 
@@ -12,12 +12,12 @@ import {AllBooksComponent} from "./components/all-books/all-books.component";
   declarations: [
     AllBooksComponent,
     BookDetailsComponent,
-    HomeComponent,
-    PublicComponent
+
   ],
   imports: [
     CommonModule,
-    PublicRoutingModule
+    BooksRoutingModule,
+    BooksComponent
   ]
 })
-export class PublicModule { }
+export class BooksModule { }
