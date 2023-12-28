@@ -14,21 +14,10 @@ import {ActivatedRoute, RouterOutlet} from "@angular/router";
 })
 
 export class BooksComponent implements OnInit{
-  // bookId: number=101;
-  // bookId: string='55';  and in code we use + to convert strings in to number
-  // authorId: number = 11;
+
   constructor(private route:ActivatedRoute) {
 
   }
-  // ngOnInit() {
-  //   this.route.firstChild?.params.subscribe(param=>{
-  //     console.log(param)
-  //
-  //
-  //   });
-  //
-  // }
-
 
   ngOnInit() {
 
