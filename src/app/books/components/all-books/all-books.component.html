@@ -1,4 +1,4 @@
-<h2>books</h2>
+<h2>{{ pageTitle }}</h2>
 <button (click)="increase()">counter ++</button>
 <button (click)="decrease()">counter --</button>
 
@@ -16,7 +16,7 @@
     <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
     <mat-card-content>
       <p>
-        Author : {{book.author}}
+        {{book.author}}
       </p>
       <p>
         totalPages: {{book.totalPages}}
