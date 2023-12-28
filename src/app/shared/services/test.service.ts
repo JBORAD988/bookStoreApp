@@ -1,0 +1,16 @@
+import { Injectable } from '@angular/core';
+import {CounterService} from "./counter.service";
+
+@Injectable()
+
+export class TestService {
+
+
+  constructor() { }
+
+
+  // public status: boolean = false;
+  public status: boolean = true;
+
+
+}

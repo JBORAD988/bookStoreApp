@@ -9,6 +9,8 @@ import {SharedModule} from "./shared/shared.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {HomeComponent} from "./public-components/home/home.component";
+import {TestService} from "./shared/services/test.service";
+import {counterFactory} from "./shared/services/counter.factory";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,15 @@ import {HomeComponent} from "./public-components/home/home.component";
     BrowserAnimationsModule,
     MatSlideToggleModule,
   ],
-  providers: [],
+
+  providers: [
+    counterFactory,
+    TestService,
+    { provide: 'appTitle', useValue: { title: 'this is title', description: 'this is description' } },
+
+  ],
+
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

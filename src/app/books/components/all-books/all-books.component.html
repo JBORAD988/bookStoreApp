@@ -1,4 +1,10 @@
 <h2>books</h2>
+<button (click)="increase()">counter ++</button>
+<button (click)="decrease()">counter --</button>
+
+<p>counter={{_CounterService.counter}}</p>
+
+
 
 <div class="container">
   <mat-card class="book-card" *ngFor="let book of books">
