@@ -1,4 +1,12 @@
 <h2>{{ pageTitle }}</h2>
+
+
+
+<a [routerLink]="['/books', 'recent-books']">Recent Books</a>
+<br>
+<a routerLink="all-books">all B</a>
+
+<br>
 <button (click)="increase()">counter ++</button>
 <button (click)="decrease()">counter --</button>
 

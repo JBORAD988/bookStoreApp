@@ -8,6 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
 export class AuthorComponent implements OnInit{
 
   @Input() data: number;
+  @Input() ShowAuthors: boolean;
+
+  // ShowAuthors: boolean = true;
 
   constructor() {
   }
