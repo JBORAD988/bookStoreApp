@@ -5,13 +5,15 @@ import {RouterLink} from "@angular/router";
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MaterialModule } from './material.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { AuthorComponent } from './components/author/author.component';
 
 
 
 @NgModule({
   declarations: [
     NotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    AuthorComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { FooterComponent } from './components/footer/footer.component';
   exports: [
     ToolbarComponent,
     FooterComponent,
-    MaterialModule
+    MaterialModule,
+    AuthorComponent
   ]
 })
 export class SharedModule { }
