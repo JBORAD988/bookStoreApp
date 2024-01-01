@@ -1,7 +1,9 @@
-<p>home works!</p>
+<p #homeTitle>home works!</p>
 
-<button (click)="increase()">counter ++</button>
-<button (click)="decrease()">counter --</button>
+<button (click)="increase()" mat-raised-button #addButton>counter ++</button>
+<button (click)="decrease()" mat-raised-button #decButton>counter --</button>
+
+<br>
 
 <p>counter = {{_CounterService.counter}}</p>
 
@@ -10,4 +12,5 @@
 
 
 <h2>Our Authors</h2>
-<app-author [data]="_CounterService.counter" [ShowAuthors]="_CounterService.counter > 4"></app-author>
+<!--<app-author [data]="_CounterService.counter" [ShowAuthors]="_CounterService.counter > 4"></app-author>-->
+<app-author ></app-author>

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {BooksRoutingModule} from "./books-routing.module";
 import {BookDetailsComponent} from "./components/book-details/book-details.component";
 import {BooksComponent} from "./books.component";
@@ -19,12 +19,13 @@ import { BookCardComponent } from './components/book-card/book-card.component';
     BookCardComponent,
 
   ],
-  imports: [
-    CommonModule,
-    BooksRoutingModule,
-    BooksComponent,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        BooksRoutingModule,
+        BooksComponent,
+        SharedModule,
+        NgOptimizedImage
+    ],
 
 })
 export class BooksModule {}
