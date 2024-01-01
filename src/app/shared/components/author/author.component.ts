@@ -7,7 +7,16 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class AuthorComponent implements OnInit{
 
-  @Input() data: number;
+  @Input()
+  set data(value:number){
+    this._data= ++value;
+  }
+
+  get data(){
+    return this._data;
+  }
+
+  private _data: number;
   @Input() ShowAuthors: boolean;
 
   // ShowAuthors: boolean = true;

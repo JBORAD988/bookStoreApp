@@ -87,4 +87,43 @@ export class BookService {
     ];
 
   }
+
+  public recentBooks(): any[]{
+    return [
+      {
+        "id":1,
+        "title": "the ups and downs of life",
+        "totalPages":456,
+        "author":"Jay Malhotra",
+        "price":{
+          "currency":"INR",
+          "value":299
+        }
+      },
+      {
+        "id": 2,
+        "title": "Journey Through Time",
+        "totalPages": 600,
+        "author": "Sophie Anderson",
+        "price": {
+          "currency": "INR",
+          "value": 450
+        }
+      },
+      {
+        "id": 3,
+        "title": "Mysteries of the Cosmos",
+        "totalPages": 320,
+        "author": "David Peterson",
+        "price": {
+          "currency": "INR",
+          "value": 279
+        }
+      }
+
+
+
+    ];
+
+  }
 }
