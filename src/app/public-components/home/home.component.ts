@@ -1,46 +1,23 @@
-import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
-import {CounterService} from "../../shared/services/counter.service";
-import {AuthorComponent} from "../../shared/components/author/author.component";
-import {MatButton} from "@angular/material/button";
+import {Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit , AfterViewInit{
+export class HomeComponent implements OnInit{
 
 
-  @ViewChild(AuthorComponent)private childAuthor: AuthorComponent;
-  @ViewChild('decButton') private  decButton: MatButton;
-  @ViewChild('addButton') private addButton: MatButton;
-  @ViewChild('homeTitle') private homeTitle: ElementRef;
+  public childData($event: any): void{
+    console.log($event);
+  }
 
-  constructor(public _CounterService:CounterService,
-     @Inject('appTitle') public title: any
-  ) {}
+
+  constructor() {}
 
   ngOnInit() {
 
-
-  }
-
-  ngAfterViewInit() {
-    setTimeout(()=>{
-      this.childAuthor.setData(500);
-      this.decButton.color="primary";
-      this.addButton.color="primary";
-      this.homeTitle.nativeElement.innerHTML = 'this is updated title'
-    },0)
-
-  }
-
-  public increase(): void{
-    this._CounterService.incCounter()
-  }
-
-  public decrease():void{
-    this._CounterService.decCounter()
   }
 
 }
