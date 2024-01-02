@@ -1,6 +1,7 @@
 <div class="child-comp">
   <p>author works! child</p>
-  <p> imput from parent = {{data}}</p>
+  <button (click)="incCounter()">Click Me {{Counter2}}</button>
+  <p> input from parent = {{data}}</p>
 
   <br>
   <h4>Author data</h4>
@@ -11,7 +12,3 @@
   <ng-content></ng-content>
 
 </div>
-
-<!--<p *ngIf="ShowAuthors">data coming from parent - {{data}}</p>-->
-
-<!--<button (click)="btnClick()">Pass data to parent</button>-->

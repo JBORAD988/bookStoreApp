@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import {TestService} from "../../shared/services/test.service";
+import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthorModel} from "../../shared/models/author.model";
+import {AuthorComponent} from "../../shared/components/author/author.component";
 
 
 @Component({
@@ -8,23 +8,21 @@ import {AuthorModel} from "../../shared/models/author.model";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit , AfterViewInit{
+export class HomeComponent implements OnInit , AfterViewChecked{
 @ViewChild('btnCounter') btnCounter: ElementRef;
+@ViewChild(AuthorComponent) authComponent: AuthorComponent;
 
   constructor()
   {
     console.log("hello from parent constructor")
   }
 
-  ngAfterViewInit() {
-    console.log(this.btnCounter);
-    this.btnCounter.nativeElement.innerHTML = " button text Updated";
+  ngAfterViewChecked() {
+    console.log(this.authComponent.Counter2)
   }
 
   ngOnInit() {
     console.log("hello from parent ngOnInit");
-
-
 
   }
 
