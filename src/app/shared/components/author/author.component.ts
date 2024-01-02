@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {TestService} from "../../services/test.service";
 
 @Component({
@@ -6,30 +6,46 @@ import {TestService} from "../../services/test.service";
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.scss']
 })
-export class AuthorComponent implements OnInit{
+export class AuthorComponent implements OnInit , OnChanges{
 
 
-  @Output() myData = new EventEmitter<string>();
+  // @Output() myData = new EventEmitter<string>();
 
-  public data:number;
-  public setData(value: number): void{
-    this.data = value;
+  // public data:number;
+  // public setData(value: number): void{
+  //   this.data = value;
+  //
+  // }
 
+
+  // ShowAuthors: boolean = true;
+  //
+  // constructor(private _testService: TestService) {
+  // }
+
+  // public btnClick(): void{
+  //   // this.myData.emit("This text is from child")
+  //   this._testService.mydata= "This text is from child mydata2"
+  //
+  // }
+
+  constructor() {
   }
 
 
-  ShowAuthors: boolean = true;
+  @Input() data: number ;
+  @Input() data2: boolean;
 
-  constructor(private _testService: TestService) {
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
   }
 
-  public btnClick(): void{
-    // this.myData.emit("This text is from child")
-    this._testService.mydata= "This text is from child mydata2"
 
-  }
+
 
   ngOnInit() {
   }
+
 
 }

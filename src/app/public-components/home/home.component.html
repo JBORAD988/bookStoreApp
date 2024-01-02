@@ -1,8 +1,11 @@
-<p>home works!</p>
-<p>Data from child data2 = {{_testService.mydata}}</p>
+<p>home works! perent</p>
 
-<h2>Our Authors</h2>
+<!--<p>Data from child data2 = {{_testService.mydata}}</p>-->
+<!--<h2>Our Authors</h2>-->
+<!--<app-author (myData)="childData($event)" ></app-author>-->
 
-<app-author (myData)="childData($event)" ></app-author>
+
+<button (click)="counter()"> Add data</button>
+<app-author [data]="count" [data2]="count2"></app-author>
 
 
