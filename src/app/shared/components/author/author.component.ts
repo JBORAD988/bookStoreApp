@@ -1,7 +1,7 @@
 import {
   AfterContentChecked,
   AfterContentInit,
-  Component,
+  Component, ContentChild,
   DoCheck,
   Input,
   OnChanges,
@@ -41,6 +41,7 @@ export class AuthorComponent implements OnInit , OnChanges , DoCheck, AfterConte
   constructor() {
     console.log("hello from child constructor")
   }
+
 
 
   @Input() data: number ;
