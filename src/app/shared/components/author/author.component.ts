@@ -1,12 +1,12 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {TestService} from "../../services/test.service";
+import {Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {AuthorModel} from "../../models/author.model";
 
 @Component({
   selector: 'app-author',
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.scss']
 })
-export class AuthorComponent implements OnInit , OnChanges{
+export class AuthorComponent implements OnInit , OnChanges , DoCheck{
 
 
   // @Output() myData = new EventEmitter<string>();
@@ -30,11 +30,18 @@ export class AuthorComponent implements OnInit , OnChanges{
   // }
 
   constructor() {
+    console.log("hello from child constructor")
   }
 
 
   @Input() data: number ;
   @Input() data2: boolean;
+  @Input() author: AuthorModel;
+
+
+  ngDoCheck() {
+    console.log(this.author)
+  }
 
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -45,6 +52,7 @@ export class AuthorComponent implements OnInit , OnChanges{
 
 
   ngOnInit() {
+    console.log("hello from child ngOn init")
   }
 
 

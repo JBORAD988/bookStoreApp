@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BookService} from "../../services/book.service";
-import {BookModel} from "../../models/book.model";
+import {BookModel} from "../../../shared/models/book.model";
 
 @Component({
   selector: 'recent-books',
