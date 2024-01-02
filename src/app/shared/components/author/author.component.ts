@@ -1,4 +1,13 @@
-import {Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  Component,
+  DoCheck,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges
+} from '@angular/core';
 import {AuthorModel} from "../../models/author.model";
 
 @Component({
@@ -6,7 +15,7 @@ import {AuthorModel} from "../../models/author.model";
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.scss']
 })
-export class AuthorComponent implements OnInit , OnChanges , DoCheck{
+export class AuthorComponent implements OnInit , OnChanges , DoCheck, AfterContentInit, AfterContentChecked{
 
 
   // @Output() myData = new EventEmitter<string>();
@@ -37,6 +46,16 @@ export class AuthorComponent implements OnInit , OnChanges , DoCheck{
   @Input() data: number ;
   @Input() data2: boolean;
   @Input() author: AuthorModel;
+
+
+  ngAfterContentChecked() {
+    console.log("AfterContentChecked")
+
+  }
+
+  ngAfterContentInit() {
+    console.log("AfterContentInit")
+  }
 
 
   ngDoCheck() {

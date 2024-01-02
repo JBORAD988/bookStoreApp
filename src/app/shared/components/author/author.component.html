@@ -1,13 +1,16 @@
-<p>author works! child</p>
-<p> imput from parent = {{data}}</p>
+<div class="child-comp">
+  <p>author works! child</p>
+  <p> imput from parent = {{data}}</p>
 
-<br>
-<h4>Author data</h4>
-<p> author :{{author.name}} <br>
-  author id:{{author.id}}
-</p>
+  <br>
+  <h4>Author data</h4>
+  <p> author :{{author.name}} <br>
+    author id:{{author.id}}
+  </p>
 
+  <ng-content></ng-content>
 
+</div>
 
 <!--<p *ngIf="ShowAuthors">data coming from parent - {{data}}</p>-->
 
