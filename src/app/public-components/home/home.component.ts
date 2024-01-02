@@ -22,10 +22,11 @@ export class HomeComponent implements OnInit{
   }
 
 
-  @Input() count : number = 0;
-  @Input() count2 : boolean = true;
-
+  public count : number = 0;
+  public count2 : boolean = true;
+  public address: string = 'India'
   public obj: AuthorModel = {id:10 , name:'nitish'}
+
 
 
 
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit{
     this.count++;
     this.count2 = !this.count2;
   this.obj.id = this.count++
+    this.address = 'Austrlia'
   }
 
 }

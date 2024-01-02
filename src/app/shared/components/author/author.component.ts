@@ -9,6 +9,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {AuthorModel} from "../../models/author.model";
+import {AuthorsAddressComponent} from "../authors-address/authors-address.component";
 
 @Component({
   selector: 'app-author',
@@ -44,18 +45,19 @@ export class AuthorComponent implements OnInit , OnChanges , DoCheck, AfterConte
 
 
 
+  @ContentChild(AuthorsAddressComponent) authAddress: AuthorsAddressComponent;
   @Input() data: number ;
   @Input() data2: boolean;
   @Input() author: AuthorModel;
 
 
   ngAfterContentChecked() {
-    console.log("AfterContentChecked")
+    console.log("AfterContentChecked"+  this.authAddress?.address)
 
   }
 
   ngAfterContentInit() {
-    console.log("AfterContentInit")
+    console.log("AfterContentInit"+ this.authAddress?.address)
   }
 
 
