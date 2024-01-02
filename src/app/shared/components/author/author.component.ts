@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {TestService} from "../../services/test.service";
 
 @Component({
   selector: 'app-author',
@@ -19,11 +20,12 @@ export class AuthorComponent implements OnInit{
 
   ShowAuthors: boolean = true;
 
-  constructor() {
+  constructor(private _testService: TestService) {
   }
 
   public btnClick(): void{
-    this.myData.emit("This text is from child")
+    // this.myData.emit("This text is from child")
+    this._testService.mydata= "This text is from child mydata2"
 
   }
 

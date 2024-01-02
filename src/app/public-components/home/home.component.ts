@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {TestService} from "../../shared/services/test.service";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit{
   }
 
 
-  constructor() {}
+  constructor(public _testService: TestService) {}
 
   ngOnInit() {
 

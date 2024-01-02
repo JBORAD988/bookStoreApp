@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {CounterService} from "./counter.service";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 
 export class TestService {
 
@@ -11,6 +12,8 @@ export class TestService {
 
   // public status: boolean = false;
   public status: boolean = true;
+
+  public mydata: string ;
 
 
 }
