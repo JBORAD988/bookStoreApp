@@ -8,14 +8,21 @@ import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angul
 export class AddBookComponent implements OnInit , AfterViewChecked{
 
 
-  @ViewChild('myForms') myForms: ElementRef;
+
   constructor() {
   }
 
   ngAfterViewChecked() {
-    console.log(this.myForms)
+
   }
 
   ngOnInit() {
   }
+
+  saveBook(value: any): void{
+    console.log(value)
+
+  }
+
+
 }

@@ -1,11 +1,18 @@
 <h2>Add New Book</h2>
-<form #myForms="ngForm">
-  <input type="text" name="bookName" id="bookName" ngModel>
+<form #myForms="ngForm" (ngSubmit)="saveBook(myForms.value)">
+  <input type="text" name="title" placeholder="title" ngModel>
   <br>
-  <input type="text" name="AuthorName" id="AuthorName" ngModel>
+  <input type="text" name="Author" placeholder="AuthorName" ngModel>
   <br>
-  <button>Save</button>
+  <input type="number" name="pages" placeholder="pages" ngModel>
+  <br>
+  <input type="number" name="price" placeholder="price" ngModel>
+  <br>
+  <button type="submit">Save</button>
 </form>
 
 
 <h2>{{myForms.value | json}}</h2>
+
+
+
