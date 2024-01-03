@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit , AfterViewChecked , OnDestroy{
     this.time = setInterval(()=>{
       this.count++;
       console.log(this.count)
-    },100)
+    },1000)
   }
 
 }

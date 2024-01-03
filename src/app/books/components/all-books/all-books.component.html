@@ -1,15 +1,7 @@
 <h2>{{ pageTitle }}</h2>
 
 
-
-<a [routerLink]="['/books', 'recent-books']">Recent Books</a>
-
-
-<br>
-<button (click)="increase()">counter ++</button>
-<button (click)="decrease()">counter --</button>
-
-<p>counter={{_CounterService.counter}}</p>
+<button mat-raised-button color="primary" [routerLink]="['/books', 'new']">Add New Book</button>
 
 <app-book-card [all-books]="books"></app-book-card>
 

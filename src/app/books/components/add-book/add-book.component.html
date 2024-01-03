@@ -1,0 +1,11 @@
+<h2>Add New Book</h2>
+<form #myForms="ngForm">
+  <input type="text" name="bookName" id="bookName" ngModel>
+  <br>
+  <input type="text" name="AuthorName" id="AuthorName" ngModel>
+  <br>
+  <button>Save</button>
+</form>
+
+
+<h2>{{myForms.value | json}}</h2>

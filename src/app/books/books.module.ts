@@ -8,6 +8,8 @@ import {BookService} from "./services/book.service";
 import {SharedModule} from "../shared/shared.module";
 import { RecentBooksComponent } from './components/recent-books/recent-books.component';
 import { BookCardComponent } from './components/book-card/book-card.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -17,6 +19,7 @@ import { BookCardComponent } from './components/book-card/book-card.component';
     BookDetailsComponent,
     RecentBooksComponent,
     BookCardComponent,
+    AddBookComponent,
 
   ],
     imports: [
@@ -24,7 +27,8 @@ import { BookCardComponent } from './components/book-card/book-card.component';
         BooksRoutingModule,
         BooksComponent,
         SharedModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+      FormsModule
     ],
 
 })
