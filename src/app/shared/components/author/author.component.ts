@@ -4,7 +4,7 @@ import {
   Component, ContentChild,
   DoCheck,
   Input,
-  OnChanges,
+  OnChanges, OnDestroy,
   OnInit,
   SimpleChanges
 } from '@angular/core';
@@ -16,7 +16,7 @@ import {AuthorsAddressComponent} from "../authors-address/authors-address.compon
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.scss']
 })
-export class AuthorComponent implements OnInit , OnChanges , DoCheck, AfterContentInit, AfterContentChecked{
+export class AuthorComponent implements OnInit , OnChanges , DoCheck, AfterContentInit, AfterContentChecked, OnDestroy{
   constructor() {
     console.log("hello from child constructor")
   }
@@ -34,6 +34,10 @@ export class AuthorComponent implements OnInit , OnChanges , DoCheck, AfterConte
 
   ngAfterContentChecked() {
     console.log("AfterContentChecked" + this.authAddress?.address);
+  }
+
+  ngOnDestroy() {
+    console.log("authors component Destroy")
   }
 
 
