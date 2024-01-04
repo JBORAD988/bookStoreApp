@@ -5,6 +5,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input'
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [],
@@ -14,7 +15,8 @@ import {MatInputModule} from '@angular/material/input'
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

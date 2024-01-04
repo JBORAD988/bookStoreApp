@@ -23,8 +23,17 @@
     <span matSuffix>.00</span>
   </mat-form-field>
   <br>
+    <mat-form-field>
+      <mat-label>Currency</mat-label>
+      <mat-select name="currency" ngModel>
+        <mat-option *ngFor="let currency of Currencys" [value]="currency.value">
+          {{ currency.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <button mat-raised-button  color="primary" type="submit">Save</button>
+
+    <button mat-raised-button  color="primary" type="submit">Save</button>
   </div>
 </form>
 
