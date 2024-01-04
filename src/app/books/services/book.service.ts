@@ -19,6 +19,7 @@ export class BookService {
         value: 12.99
       },
       published:true,
+
     },
     {
       id:1,

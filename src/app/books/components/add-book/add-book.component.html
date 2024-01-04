@@ -32,6 +32,14 @@
       </mat-select>
     </mat-form-field>
     <br>
+    <mat-form-field>
+      <mat-label>Publish date</mat-label>
+      <input matInput [matDatepicker]="picker" name="date" ngModel>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
     <mat-slide-toggle name="isPublished" ngModel>IS that Book Published !</mat-slide-toggle>
 
 
