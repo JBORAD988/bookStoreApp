@@ -17,7 +17,8 @@ export class BookService {
       price: {
         currency: "USD",
         value: 12.99
-      }
+      },
+      published:true,
     },
     {
       id:1,
@@ -27,7 +28,8 @@ export class BookService {
       price:{
         currency:"INR",
         value:299
-      }
+      },
+      published:true,
     },
     {
       id: 2,
@@ -37,7 +39,8 @@ export class BookService {
       price: {
         currency: "INR",
         value: 450
-      }
+      },
+      published:true,
     },
     {
       id: 3,
@@ -47,7 +50,8 @@ export class BookService {
       price: {
         currency: "INR",
         value: 279
-      }
+      },
+      published:false,
     },
     {
       id: 4,
@@ -57,7 +61,8 @@ export class BookService {
       price: {
         currency: "INR",
         value: 199
-      }
+      },
+      published:false,
     },
     {
       id: 6,
@@ -67,7 +72,8 @@ export class BookService {
       price: {
         currency: "JPY",
         value: 3500
-      }
+      },
+      published:true,
     },
     {
       id: 7,
@@ -77,7 +83,8 @@ export class BookService {
       price: {
         currency: "EGP",
         value: 150
-      }
+      },
+      published: false,
     }
   ];
 
@@ -101,7 +108,8 @@ export class BookService {
         "price":{
           "currency":"INR",
           "value":299
-        }
+        },
+        "published":true,
       },
       {
         "id": 2,
@@ -111,7 +119,8 @@ export class BookService {
         "price": {
           "currency": "INR",
           "value": 450
-        }
+        },
+        "published":true,
       },
       {
         "id": 3,
@@ -121,7 +130,8 @@ export class BookService {
         "price": {
           "currency": "INR",
           "value": 279
-        }
+        },
+        "published":true,
       }
 
 

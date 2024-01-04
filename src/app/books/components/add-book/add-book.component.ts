@@ -30,8 +30,9 @@ export class AddBookComponent implements OnInit {
     book.title = value.title;
     book.author = value.author;
     book.totalPages = value.pages;
-    book.price.value = value.price
-    book.price.currency = value.currency
+    book.price.value = value.price;
+    book.price.currency = value.currency;
+    book.published = value.isPublished;
     this._bookService.addBook(book);
 
   }

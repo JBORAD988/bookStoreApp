@@ -27,5 +27,6 @@ export class BookModel {
   public totalPages: number;
   // public price: { currency: string; value: number };
   public price: { currency: string; value: number } = { currency: 'USD', value: 0 };
+  public published: boolean;
 
 }
