@@ -28,7 +28,7 @@ import {FormsModule} from "@angular/forms";
         BooksComponent,
         SharedModule,
         NgOptimizedImage,
-      FormsModule
+        FormsModule
     ],
 
 })
