@@ -1,6 +1,7 @@
-import { Component, OnInit, } from '@angular/core';
+import {Component, OnInit, ViewChild,} from '@angular/core';
 import {BookService} from "../../services/book.service";
 import {BookModel} from "../../../shared/models/book.model";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-add-book',
@@ -9,7 +10,7 @@ import {BookModel} from "../../../shared/models/book.model";
 })
 export class AddBookComponent implements OnInit {
 
-// @ViewChild('myForms') myForms : ElementRef;
+@ViewChild('myForms') myForms : NgForm;
 
 
   public model: BookModel;
@@ -47,7 +48,14 @@ export class AddBookComponent implements OnInit {
   // }
 
   saveBook(): void {
-    this._bookService.addBook(this.model)
+
+    if (this.myForms.valid){
+      this._bookService.addBook(this.model)
+    }
+    else {
+      alert("Form Invalid")
+    }
+
   }
 
 
