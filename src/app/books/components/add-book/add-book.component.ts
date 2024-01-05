@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild,} from '@angular/core';
+import {Component, OnInit, ViewChild,AfterViewChecked} from '@angular/core';
 import {BookService} from "../../services/book.service";
 import {BookModel} from "../../../shared/models/book.model";
 import {NgForm} from "@angular/forms";
@@ -8,19 +8,21 @@ import {NgForm} from "@angular/forms";
   templateUrl: './add-book.component.html',
   styleUrls: ['./add-book.component.scss']
 })
-export class AddBookComponent implements OnInit {
+export class AddBookComponent implements OnInit , AfterViewChecked{
 
 @ViewChild('myForms') myForms : NgForm;
+
 
 
   public model: BookModel;
   constructor(private _bookService: BookService) {
   }
 
-  // ngAfterViewChecked() {
-  //   console.log(this.myForms)
-  //
-  // }
+  ngAfterViewChecked() {
+    console.log(JSON.stringify(this.myForms.value));
+
+
+  }
 
   ngOnInit() {
     this.model = new BookModel();
@@ -31,6 +33,11 @@ export class AddBookComponent implements OnInit {
     this.model.price.currency = 'INR'
     this.model.publishedOn= new Date()
     this.model.published = true;
+
+
+
+
+
 
   }
 
@@ -55,6 +62,8 @@ export class AddBookComponent implements OnInit {
     else {
       alert("Form Invalid")
     }
+
+
 
   }
 

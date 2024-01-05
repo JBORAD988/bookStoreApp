@@ -5,23 +5,26 @@
   <div class="example-container">
   <mat-form-field>
     <input matInput placeholder="Book title" type="text" name="title"  [(ngModel)]="model.title" required maxlength="10" #bookTitle="ngModel">
-    <mat-hint [hidden]="bookTitle.valid">Please enter the book title </mat-hint>
+    <mat-hint class="ErrorMsg" [hidden]="bookTitle.valid">Please enter the book title </mat-hint>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Book author" type="text" name="author" [(ngModel)]="model.author" required>
+    <input matInput placeholder="Book author" type="text" name="author" [(ngModel)]="model.author" required #bookAuthor="ngModel">
+    <mat-hint class="ErrorMsg" [hidden]="bookAuthor.valid">Please enter Authors Name</mat-hint>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Number of Pages" type="number" class="example-right-align" name="pages" [(ngModel)]="model.totalPages" required>
+    <input matInput placeholder="Number of Pages" type="number" class="example-right-align" name="pages" [(ngModel)]="model.totalPages" required #bookPage="ngModel" min="10" max="859">
     <span matPrefix>📖&nbsp;</span>
     <span matSuffix>.00</span>
+    <mat-hint class="ErrorMsg" [hidden]="bookPage.valid">Please enter Number length between 1o to 859</mat-hint>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Book Price" type="number" class="example-right-align"  name="price" [(ngModel)]="model.price.value" required>
+    <input matInput placeholder="Book Price" type="number" class="example-right-align"  name="price" [(ngModel)]="model.price.value" required #bookPrice="ngModel">
     <span matPrefix>$&nbsp;</span>
     <span matSuffix>.00</span>
+    <mat-hint class="ErrorMsg" [hidden]="bookPrice.valid">Please enter Amount</mat-hint>
   </mat-form-field>
   <br>
     <mat-form-field>
@@ -49,5 +52,5 @@
 </form>
 
 
-<h2 style="text-align: center">{{myForms.value | json}}</h2>
+<!--<h2 style="text-align: center">{{myForms.value | json}}</h2>-->
 
