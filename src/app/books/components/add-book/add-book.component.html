@@ -4,7 +4,8 @@
 <form #myForms="ngForm" (ngSubmit)="saveBook()">
   <div class="example-container">
   <mat-form-field>
-    <input matInput placeholder="Book title" type="text" name="title"  [(ngModel)]="model.title" required>
+    <input matInput placeholder="Book title" type="text" name="title"  [(ngModel)]="model.title" required maxlength="10" #bookTitle="ngModel">
+    <mat-hint [hidden]="bookTitle.valid">Please enter the book title </mat-hint>
   </mat-form-field>
   <br>
   <mat-form-field>
