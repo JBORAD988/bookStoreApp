@@ -18,7 +18,7 @@
       </p>
       <p>Book Publish Status : {{ book.published ? 'Yes' : 'No' }}</p>
 <!--      <p>Book Publish Status : {{ book.published}}</p>  // this shows value as true false-->
-<!--      <p>Book Published On : {{book.publishedon}}</p>-->
+      <p>Book Published On : {{book.publishedOn |date: 'MMM dd yyyy'}}</p>
 
     </mat-card-content>
     <mat-card-actions>

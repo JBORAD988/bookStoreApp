@@ -1,31 +1,32 @@
 <h2 style="text-align: center">Add New Book</h2>
 
 
-<form #myForms="ngForm" (ngSubmit)="saveBook(myForms.value)">
+<!--<form #myForms="ngForm" (ngSubmit)="saveBook(myForms.value)">-->
+<form #myForms="ngForm" (ngSubmit)="saveBook()">
   <div class="example-container">
   <mat-form-field>
-    <input matInput placeholder="Enter your title" type="text" name="title" ngModel>
+    <input matInput placeholder="Enter your title" type="text" name="title" [(ngModel)]="model.title">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Enter your author" type="text" name="author" ngModel>
+    <input matInput placeholder="Enter your author" type="text" name="author" [(ngModel)]="model.author">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="pages" type="number" class="example-right-align" name="pages" ngModel>
+    <input matInput placeholder="pages" type="number" class="example-right-align" name="pages" [(ngModel)]="model.totalPages">
     <span matPrefix>📖&nbsp;</span>
     <span matSuffix>.00</span>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="price" type="number" class="example-right-align"  name="price" ngModel>
+    <input matInput placeholder="price" type="number" class="example-right-align"  name="price" [(ngModel)]="model.price.value">
     <span matPrefix>$&nbsp;</span>
     <span matSuffix>.00</span>
   </mat-form-field>
   <br>
     <mat-form-field>
       <mat-label>Currency</mat-label>
-      <mat-select name="currency" ngModel>
+      <mat-select name="currency" [(ngModel)]="model.price.currency">
         <mat-option *ngFor="let currency of Currencys" [value]="currency.value">
           {{ currency.viewValue }}
         </mat-option>
@@ -34,13 +35,13 @@
     <br>
     <mat-form-field>
       <mat-label>Publish date</mat-label>
-      <input matInput [matDatepicker]="picker" name="date" ngModel>
+      <input matInput [matDatepicker]="picker" name="publishedOn" [(ngModel)]="model.publishedOn">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <br>
-    <mat-slide-toggle name="isPublished" ngModel>IS that Book Published !</mat-slide-toggle>
+    <mat-slide-toggle name="isPublished" [(ngModel)]="model.published">IS that Book Published !</mat-slide-toggle>
 
 
     <button mat-raised-button  color="primary" type="submit" style="margin-top: 10px">Save</button>
@@ -49,8 +50,4 @@
 
 
 <h2 style="text-align: center">{{myForms.value | json}}</h2>
-
-
-
-
 

@@ -11,8 +11,8 @@ export class AddBookComponent implements OnInit {
 
 // @ViewChild('myForms') myForms : ElementRef;
 
-  hide: boolean = true;
 
+  public model: BookModel;
   constructor(private _bookService: BookService) {
   }
 
@@ -22,20 +22,35 @@ export class AddBookComponent implements OnInit {
   // }
 
   ngOnInit() {
-  }
-
-  saveBook(value: any): void{
-    console.log(value)
-    const book:BookModel = new BookModel()
-    book.title = value.title;
-    book.author = value.author;
-    book.totalPages = value.pages;
-    book.price.value = value.price;
-    book.price.currency = value.currency
-    book.published = value.isPublished;
-    this._bookService.addBook(book);
+    this.model = new BookModel();
+    this.model.title='DemoBook';
+    this.model.author='DemoAuthor';
+    this.model.totalPages= 703 ;
+    this.model.price.value = 200;
+    this.model.price.currency = 'INR'
+    this.model.publishedOn= new Date()
+    this.model.published = true;
 
   }
+
+  // saveBook(value: any): void{
+    // console.log(value)
+    // const book:BookModel = new BookModel()
+    // book.title = value.title;
+    // book.author = value.author;
+    // book.totalPages = value.pages;
+    // book.price.value = value.price;
+    // book.price.currency = value.currency
+    // book.published = value.isPublished;
+    // book.publishedOn = value.publishedOn;
+    // this._bookService.addBook(book);
+  // }
+
+  saveBook(): void {
+    this._bookService.addBook(this.model)
+  }
+
+
 
   Currencys = [
     { value: 'USD', viewValue: 'United States Dollar' },

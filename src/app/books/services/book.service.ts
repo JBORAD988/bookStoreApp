@@ -19,6 +19,7 @@ export class BookService {
         value: 12.99
       },
       published:true,
+      publishedOn: new Date(),
 
     },
     {
@@ -31,6 +32,7 @@ export class BookService {
         value:299
       },
       published:true,
+      publishedOn: new Date(),
     },
     {
       id: 2,
@@ -42,6 +44,7 @@ export class BookService {
         value: 450
       },
       published:true,
+      publishedOn: new Date(),
     },
     {
       id: 3,
@@ -53,6 +56,7 @@ export class BookService {
         value: 279
       },
       published:false,
+      publishedOn: new Date(),
     },
     {
       id: 4,
@@ -64,6 +68,7 @@ export class BookService {
         value: 199
       },
       published:false,
+      publishedOn: new Date(),
     },
     {
       id: 6,
@@ -75,6 +80,7 @@ export class BookService {
         value: 3500
       },
       published:true,
+      publishedOn: new Date(),
     },
     {
       id: 7,
@@ -86,6 +92,7 @@ export class BookService {
         value: 150
       },
       published: false,
+      publishedOn: new Date(),
     }
   ];
 
