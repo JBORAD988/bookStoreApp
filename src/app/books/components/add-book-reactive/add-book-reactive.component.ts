@@ -21,6 +21,11 @@ export class AddBookReactiveComponent implements OnInit{
   ngOnInit() {
     this.initForm();
     // this.updateFormValues(); //call from here or create button
+
+    console.log(this.addBookForm.controls['title']);
+    console.log(this.addBookForm.get('title'));
+
+
   }
 
 
