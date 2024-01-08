@@ -1,6 +1,24 @@
 <h2 style="text-align: center">Add New Book</h2>
 
 <!--<form #myForms="ngForm" (ngSubmit)="saveBook(myForms.value)">-->
+<table>
+  <tr>
+    <td>Pristine</td>
+    <td>{{bookTitle.pristine}}</td>
+  </tr>
+  <tr>
+    <td>dirty</td>
+    <td>{{bookTitle.dirty}}</td>
+  </tr>
+  <tr>
+    <td>Touched</td>
+    <td>{{bookTitle.touched}}</td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td>{{bookTitle.status}}</td>
+  </tr>
+</table>
 <form #myForms="ngForm" (ngSubmit)="saveBook()">
   <div class="example-container">
   <mat-form-field>
@@ -39,7 +57,7 @@
     <mat-form-field>
       <mat-label>Publish date</mat-label>
       <input matInput [matDatepicker]="picker" name="publishedOn" [(ngModel)]="model.publishedOn">
-      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-hint>Month/Date/Year</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
