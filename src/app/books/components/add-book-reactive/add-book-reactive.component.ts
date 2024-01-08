@@ -16,14 +16,7 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
   public addBookForm: FormGroup ;
 
   constructor() {
-    this.addBookForm = new FormGroup({
-    title: new FormControl(),
-    author: new FormControl(),
-    totalPages: new FormControl(),
-    price: new FormControl(),
-    publishedOn: new FormControl(),
-    published: new FormControl(),
-  });
+
   }
 
   ngAfterViewChecked() {
@@ -34,6 +27,14 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
   }
 
   private initForm(): void{
+    this.addBookForm = new FormGroup({
+      title: new FormControl(),
+      author: new FormControl(),
+      totalPages: new FormControl(),
+      price: new FormControl(),
+      publishedOn: new FormControl(),
+      published: new FormControl(),
+    });
 
   }
 
