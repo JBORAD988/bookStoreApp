@@ -18,13 +18,22 @@
     <td>Status: data not Avail in field ==</td>
     <td>{{bookTitle.status}}</td>
   </tr>
+  <tr>
+    <td>Errors ==</td>
+    <td>{{bookTitle.errors | json}}</td>
+  </tr>
 </table>
 <form #myForms="ngForm" (ngSubmit)="saveBook()">
   <div class="example-container">
   <mat-form-field>
-    <input matInput placeholder="Book title" type="text" name="title"  [(ngModel)]="model.title" required  maxlength="10" #bookTitle="ngModel">
+    <input matInput placeholder="Book title" type="text" name="title"  [(ngModel)]="model.title" required minlength="5" maxlength="10" #bookTitle="ngModel">
 <!--    <mat-hint class="ErrorMsg" [hidden]="bookTitle.valid">Please enter the book title </mat-hint>-->
-    <mat-hint class="ErrorMsg" *ngIf="bookTitle.invalid && bookTitle.touched">Please enter the book title </mat-hint>
+    <mat-hint class="ErrorMsg" *ngIf="bookTitle.invalid && bookTitle.touched">
+<!--    <span *ngIf="bookTitle.errors?.required">Please enter the book title</span>-->
+<!--      <span *ngIf="bookTitle.errors?.minlength">Min Length is 5 Words </span>-->
+      <span *ngIf="bookTitle.errors && bookTitle.errors['required']">Please enter the book title</span>
+      <span *ngIf="bookTitle.errors && bookTitle.errors['minlength']">Min Length is 5 Words </span>
+    </mat-hint>
   </mat-form-field>
   <br>
   <mat-form-field>
