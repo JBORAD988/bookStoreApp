@@ -31,8 +31,12 @@
     <mat-hint class="ErrorMsg" *ngIf="bookTitle.invalid && bookTitle.touched">
 <!--    <span *ngIf="bookTitle.errors?.required">Please enter the book title</span>  //this might cause error in build -->
 <!--      <span *ngIf="bookTitle.errors?.minlength">Min Length is 5 Words //this might cause error in build  </span>-->
-      <span *ngIf="bookTitle.errors && bookTitle.errors['required']">Please enter the book title</span>
-      <span *ngIf="bookTitle.errors && bookTitle.errors['minlength']">Min Length is 5 Words </span>
+
+      <span *ngIf="bookTitle.errors?.['required']">Please enter the book title</span>
+      <span *ngIf="bookTitle.errors?.['minlength']">Min Length is 5 Words  </span>
+
+<!--      <span *ngIf="bookTitle.errors && bookTitle.errors['required']">Please enter the book title</span>-->
+<!--      <span *ngIf="bookTitle.errors && bookTitle.errors['minlength']">Min Length is 5 Words </span>-->
     </mat-hint>
   </mat-form-field>
   <br>
