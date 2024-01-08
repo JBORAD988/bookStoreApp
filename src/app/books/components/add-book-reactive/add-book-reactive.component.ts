@@ -20,7 +20,19 @@ export class AddBookReactiveComponent implements OnInit{
 
   ngOnInit() {
     this.initForm();
+    // this.updateFormValues(); //call from here or create button
   }
+
+
+  updateFormValues(): void{
+
+    this.addBookForm.patchValue({
+      title: 'Book of the year number 2024',
+      author: 'JBond988',
+    })
+
+  }
+
   private initForm(): void{
     this.addBookForm = new FormGroup({
       title: new FormControl('Book number 101', [Validators.required, Validators.minLength(10)]),
@@ -33,12 +45,6 @@ export class AddBookReactiveComponent implements OnInit{
       publishedOn: new FormControl(new Date()),
       published: new FormControl(true),
     });
-
-    this.addBookForm.patchValue({
-      title: 'Book of the year number 101',
-      author: 'Jay Borad',
-    })
-
   }
 
   Currencys = [
