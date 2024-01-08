@@ -1,6 +1,5 @@
 import {AfterViewChecked, Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
-import {BookModel} from "../../../shared/models/book.model";
 import {BookService} from "../../services/book.service";
 
 @Component({

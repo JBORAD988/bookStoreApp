@@ -25,7 +25,7 @@
     <br>
     <mat-form-field formGroupName="price">
       <mat-label>Currency</mat-label>
-      <mat-select name="currency" formControlName="currency">
+      <mat-select  formControlName="currency">
         <mat-option *ngFor="let currency of Currencys" [value]="currency.value">
           {{ currency.viewValue }}
         </mat-option>
