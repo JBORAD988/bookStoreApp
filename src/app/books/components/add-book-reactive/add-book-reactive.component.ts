@@ -15,7 +15,7 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
 
   public addBookForm: FormGroup ;
 
-  constructor() {
+  constructor(private _bookService: BookService) {
 
   }
 
@@ -24,6 +24,7 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
   }
 
   ngOnInit() {
+    this.initForm();
   }
 
   private initForm(): void{
@@ -31,7 +32,10 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
       title: new FormControl(),
       author: new FormControl(),
       totalPages: new FormControl(),
-      price: new FormControl(),
+      price: new FormGroup({
+        value: new FormControl(),
+        currency: new FormControl
+      }),
       publishedOn: new FormControl(),
       published: new FormControl(),
     });
@@ -49,4 +53,14 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
     {value: 'CHF ', viewValue: 'Swiss Franc'},
     {value: 'AED' , viewValue: 'United Arab Emirates Dirham'},
   ];
+
+  saveBook(): void{
+    console.log(this.addBookForm.value);
+
+    if (this.addBookForm.valid){
+      this._bookService.addBook(this.addBookForm.value);
+    }else {
+      alert("form invalid");
+    }
+  }
 }
