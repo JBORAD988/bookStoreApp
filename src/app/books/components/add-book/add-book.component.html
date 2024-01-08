@@ -44,7 +44,7 @@
     <input matInput placeholder="Number of Pages" type="number" class="example-right-align" name="pages" [(ngModel)]="model.totalPages" required #bookPage="ngModel" min="10" max="859">
     <span matPrefix>📖&nbsp;</span>
     <span matSuffix>.00</span>
-    <mat-hint class="ErrorMsg" [hidden]="bookPage.invalid && bookPage.touched">
+    <mat-hint class="ErrorMsg" *ngIf="bookPage.invalid && bookPage.touched">
       <span *ngIf="bookPage.errors?.['required']">Please enter the number of pages</span>
       <span *ngIf="bookPage.errors?.['min']">Min Length is 10 Page  </span>
       <span *ngIf="bookPage.errors?.['max']">Max length is 859 Pages</span>
@@ -55,7 +55,6 @@
     <input matInput placeholder="Book Price" type="number" class="example-right-align"  name="price" [(ngModel)]="model.price.value" required #bookPrice="ngModel">
     <span matPrefix>$&nbsp;</span>
     <span matSuffix>.00</span>
-<!--    <mat-hint class="ErrorMsg" [hidden]="bookPrice.valid">Please enter Amount</mat-hint>-->
     <mat-hint class="ErrorMsg" [hidden]="bookPrice.valid">Please enter Amount</mat-hint>
   </mat-form-field>
   <br>
