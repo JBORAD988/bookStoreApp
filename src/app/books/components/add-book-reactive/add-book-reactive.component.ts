@@ -33,7 +33,9 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
   ngOnInit() {
   }
 
+  private initForm(): void{
 
+  }
 
   Currencys = [
     { value: 'USD', viewValue: 'United States Dollar' },
