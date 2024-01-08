@@ -1,5 +1,5 @@
 import {AfterViewChecked, Component, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, NgForm} from "@angular/forms";
+import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {BookModel} from "../../../shared/models/book.model";
 import {BookService} from "../../services/book.service";
 
@@ -26,11 +26,10 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
   ngOnInit() {
     this.initForm();
   }
-
   private initForm(): void{
     this.addBookForm = new FormGroup({
-      title: new FormControl('Book number 101'),
-      author: new FormControl('Jay Borad'),
+      title: new FormControl('Book number 101', [Validators.required, Validators.minLength(10)]),
+      author: new FormControl('Jay Borad', Validators.required),
       totalPages: new FormControl(476),
       price: new FormGroup({
         value: new FormControl(1299),

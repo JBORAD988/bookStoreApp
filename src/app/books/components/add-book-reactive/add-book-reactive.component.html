@@ -1,9 +1,10 @@
 <h2 style="text-align: center">Add New Book using Reactive</h2>
-{{addBookForm.value | json}}
+{{addBookForm.errors | json}}
+
 <form class="add-book-form" (ngSubmit)="saveBook()" [formGroup]="addBookForm">
   <div class="example-container">
     <mat-form-field>
-      <input matInput placeholder="Book title" type="text" name="title"  required minlength="5" maxlength="80" formControlName="title">
+      <input matInput placeholder="Book title" type="text" name="title" formControlName="title">
     </mat-form-field>
     <br>
     <mat-form-field>
