@@ -3,7 +3,7 @@
 <form class="add-book-form" (ngSubmit)="saveBook()" [formGroup]="addBookForm">
   <div class="example-container">
     <mat-form-field>
-      <input matInput placeholder="Book title" type="text" name="title"  required minlength="10" maxlength="80" formControlName="title">
+      <input matInput placeholder="Book title" type="text" name="title"  required minlength="5" maxlength="80" formControlName="title">
     </mat-form-field>
     <br>
     <mat-form-field>

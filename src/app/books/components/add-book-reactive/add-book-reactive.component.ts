@@ -29,15 +29,15 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
 
   private initForm(): void{
     this.addBookForm = new FormGroup({
-      title: new FormControl(),
-      author: new FormControl(),
-      totalPages: new FormControl(),
+      title: new FormControl('Book number 101'),
+      author: new FormControl('Jay Borad'),
+      totalPages: new FormControl(476),
       price: new FormGroup({
-        value: new FormControl(),
-        currency: new FormControl
+        value: new FormControl(1299),
+        currency: new FormControl('INR')
       }),
-      publishedOn: new FormControl(),
-      published: new FormControl(),
+      publishedOn: new FormControl(new Date()),
+      published: new FormControl(true),
     });
 
   }
