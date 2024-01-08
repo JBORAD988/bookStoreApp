@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {BookService} from "../../services/book.service";
 
@@ -7,7 +7,7 @@ import {BookService} from "../../services/book.service";
   templateUrl: './add-book-reactive.component.html',
   styleUrls: ['./add-book-reactive.component.scss']
 })
-export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
+export class AddBookReactiveComponent implements OnInit{
 
 
   @ViewChild('myForms') myForms : NgForm;
@@ -16,10 +16,6 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
 
   constructor(private _bookService: BookService) {
 
-  }
-
-  ngAfterViewChecked() {
-    console.log(JSON.stringify(this.myForms.value));
   }
 
   ngOnInit() {
