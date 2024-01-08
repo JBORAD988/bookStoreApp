@@ -38,6 +38,11 @@ export class AddBookReactiveComponent implements OnInit , AfterViewChecked{
       published: new FormControl(true),
     });
 
+    this.addBookForm.patchValue({
+      title: 'Book of the year number 101',
+      author: 'Jay Borad',
+    })
+
   }
 
   Currencys = [
