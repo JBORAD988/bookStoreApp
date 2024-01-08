@@ -26,7 +26,7 @@ export class AddBookComponent implements OnInit , AfterViewChecked{
     this.model = new BookModel();
     this.model.title='DemoBook';
     // this.model.author='DemoAuthor';
-    this.model.totalPages= 703 ;
+    // this.model.totalPages= 703 ;
     this.model.price.value = 200;
     this.model.price.currency = 'INR'
     this.model.publishedOn= new Date()

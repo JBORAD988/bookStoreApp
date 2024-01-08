@@ -20,7 +20,7 @@
   </tr>
   <tr>
     <td>Errors ==</td>
-    <td>{{bookTitle.errors | json}}</td>
+    <td>{{bookPage.errors | json}}</td>
   </tr>
 </table>
 <form #myForms="ngForm" (ngSubmit)="saveBook()">
@@ -29,14 +29,8 @@
     <input matInput placeholder="Book title" type="text" name="title"  [(ngModel)]="model.title" required minlength="5" maxlength="10" #bookTitle="ngModel">
 <!--    <mat-hint class="ErrorMsg" [hidden]="bookTitle.valid">Please enter the book title </mat-hint>-->
     <mat-hint class="ErrorMsg" *ngIf="bookTitle.invalid && bookTitle.touched">
-<!--    <span *ngIf="bookTitle.errors?.required">Please enter the book title</span>  //this might cause error in build -->
-<!--      <span *ngIf="bookTitle.errors?.minlength">Min Length is 5 Words //this might cause error in build  </span>-->
-
       <span *ngIf="bookTitle.errors?.['required']">Please enter the book title</span>
       <span *ngIf="bookTitle.errors?.['minlength']">Min Length is 5 Words  </span>
-
-<!--      <span *ngIf="bookTitle.errors && bookTitle.errors['required']">Please enter the book title</span>-->
-<!--      <span *ngIf="bookTitle.errors && bookTitle.errors['minlength']">Min Length is 5 Words </span>-->
     </mat-hint>
   </mat-form-field>
   <br>
@@ -50,8 +44,11 @@
     <input matInput placeholder="Number of Pages" type="number" class="example-right-align" name="pages" [(ngModel)]="model.totalPages" required #bookPage="ngModel" min="10" max="859">
     <span matPrefix>📖&nbsp;</span>
     <span matSuffix>.00</span>
-<!--    <mat-hint class="ErrorMsg" [hidden]="bookPage.valid">Please enter Number length between 1o to 859</mat-hint>-->
-    <mat-hint class="ErrorMsg" [hidden]="bookPage.valid">Please enter Number length between 1o to 859</mat-hint>
+    <mat-hint class="ErrorMsg" [hidden]="bookPage.invalid && bookPage.touched">
+      <span *ngIf="bookPage.errors?.['required']">Please enter the number of pages</span>
+      <span *ngIf="bookPage.errors?.['min']">Min Length is 10 Page  </span>
+      <span *ngIf="bookPage.errors?.['max']">Max length is 859 Pages</span>
+    </mat-hint>
   </mat-form-field>
   <br>
   <mat-form-field>
