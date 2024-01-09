@@ -101,6 +101,13 @@ export class AddBookReactiveComponent implements OnInit{
     });
   }
 
+  public AddMoreAuthor(): void{
+    this.authors.push(this.getAuthorControl());
+  }
+
+  public RemoveAuthor(i: number): void{
+    this.authors.removeAt(i);
+  }
 
   Currencys = [
     { value: 'USD', viewValue: 'United States Dollar' },
