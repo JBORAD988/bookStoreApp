@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {BookService} from "../../services/book.service";
+import {A} from "@angular/cdk/keycodes";
 
 @Component({
   selector: 'app-add-book-reactive',
@@ -15,7 +16,8 @@ export class AddBookReactiveComponent implements OnInit{
   public addBookForm: FormGroup ;
   public titleErrorMessage: String;
   public authorErrorMessage: String;
-  public pageEroorMessage: String;
+  public pageErrorMessage: String;
+  public amountErrorMessage: String;
 
   constructor(private _bookService: BookService) {
 
@@ -30,19 +32,26 @@ export class AddBookReactiveComponent implements OnInit{
 
 
     const titleControl = this.addBookForm.get('title');
-    titleControl?.valueChanges.subscribe(x=>{
+    titleControl?.valueChanges.subscribe(title=>{
       this.validateTitleControl(titleControl as AbstractControl);
     });
 
     const AuthorControl = this.addBookForm.get('author');
-    AuthorControl?.valueChanges.subscribe(x=>{
+    AuthorControl?.valueChanges.subscribe(author=>{
       this.validateAuthorControl(AuthorControl as AbstractControl)
     })
 
     const PageControl = this.addBookForm.get('totalPages');
-    PageControl?.valueChanges.subscribe(x=>{
+    PageControl?.valueChanges.subscribe(pages=>{
       this.ValidatePageControl(PageControl as AbstractControl)
     })
+
+
+
+    const AmountControl = this.addBookForm.get('price.value');
+    AmountControl?.valueChanges.subscribe(amount => {
+      this.ValidateAmount(AmountControl as AbstractControl);
+    });
 
   }
 
@@ -56,13 +65,27 @@ export class AddBookReactiveComponent implements OnInit{
 
   }
 
+  // private initForm(): void{
+  //   this.addBookForm = new FormGroup({
+  //     title: new FormControl('Book number 101', [Validators.required, Validators.minLength(10)]),
+  //     author: new FormControl('Jay Borad', Validators.required),
+  //     totalPages: new FormControl(476),
+  //     price: new FormGroup({
+  //       value: new FormControl(),
+  //       currency: new FormControl('INR')
+  //     }),
+  //     publishedOn: new FormControl(new Date()),
+  //     published: new FormControl(true),
+  //   });
+  // }
+
   private initForm(): void{
     this.addBookForm = new FormGroup({
       title: new FormControl('Book number 101', [Validators.required, Validators.minLength(10)]),
-      author: new FormControl('Jay Borad', Validators.required),
+      author: new FormControl(null  ,Validators.required),
       totalPages: new FormControl(476),
       price: new FormGroup({
-        value: new FormControl(1299),
+        value: new FormControl(),
         currency: new FormControl('INR')
       }),
       publishedOn: new FormControl(new Date()),
@@ -122,37 +145,34 @@ export class AddBookReactiveComponent implements OnInit{
     }
   }
 
-  // private ValidatePageControl(PageControl: AbstractControl): void{
-  //   this.pageEroorMessage='';
-  //
-  //   if (PageControl.errors &&(PageControl.touched || PageControl.dirty)){
-  //     if (PageControl.errors['required']){
-  //       this.pageEroorMessage='Please enter the number of pages'
-  //     }else {
-  //       if (PageControl.errors['min']){
-  //         this.pageEroorMessage='Min Length is 10 Page'
-  //       }else {
-  //         this.pageEroorMessage='Max length is 859 Pages'
-  //       }
-  //     }
-  //     }
-  //   }
-
-
   private ValidatePageControl(PageControl: AbstractControl): void{
-    this.pageEroorMessage='';
+    this.pageErrorMessage='';
 
     if (PageControl.errors &&(PageControl.touched || PageControl.dirty)){
       if (PageControl.errors['required']){
-        this.pageEroorMessage='Please enter the number of pages'
+        this.pageErrorMessage='Please enter the number of pages'
       }else if (PageControl.errors['min']){
-          this.pageEroorMessage='Min Length is 10 Page'
+          this.pageErrorMessage='Min Length is 10 Page'
         }else {
-          this.pageEroorMessage='Max length is 859 Pages'
+          this.pageErrorMessage='Max length is 859 Pages'
         }
 
     }
   }
+
+  private ValidateAmount(AmountControl: AbstractControl): void {
+    this.amountErrorMessage = '';
+
+    if (AmountControl.errors && (AmountControl.touched || AmountControl.dirty)) {
+      if (AmountControl.errors['required']) {
+        this.amountErrorMessage = 'Enter Amount';
+      }
+      // Add additional validation checks if needed
+    }
+  }
+
+
+
 
 }
 

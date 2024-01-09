@@ -30,7 +30,7 @@
     </mat-form-field>
 
     <mat-hint class="ErrorMsg">
-   {{pageEroorMessage}}
+   {{pageErrorMessage}}
     </mat-hint>
     <br>
     <mat-form-field formGroupName="price">
@@ -38,7 +38,8 @@
       <span matPrefix>₹&nbsp;</span>
       <span matSuffix>.00</span>
     </mat-form-field>
-    <mat-hint class="ErrorMsg" *ngIf="!addBookForm.get('price.value')?.valid && addBookForm.get('price.value')?.touched">Please enter Amount</mat-hint>
+    <mat-hint class="ErrorMsg" >
+      {{ amountErrorMessage }}</mat-hint>
     <br>
     <mat-form-field formGroupName="price">
       <mat-label>Currency</mat-label>
