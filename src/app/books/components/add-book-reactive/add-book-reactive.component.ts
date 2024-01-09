@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
+import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {BookService} from "../../services/book.service";
 import {A} from "@angular/cdk/keycodes";
 
@@ -19,7 +19,7 @@ export class AddBookReactiveComponent implements OnInit{
   public pageErrorMessage: String;
   public amountErrorMessage: String;
 
-  constructor(private _bookService: BookService) {
+  constructor(private _bookService: BookService, private _formBuilder: FormBuilder) {
 
   }
 
@@ -61,6 +61,10 @@ export class AddBookReactiveComponent implements OnInit{
   }
 
 
+  public get authors() {
+    return <FormArray<any>>this.addBookForm.get('authors')
+  }
+
   updateFormValues(): void{
 
     this.addBookForm.patchValue({
@@ -70,21 +74,33 @@ export class AddBookReactiveComponent implements OnInit{
 
   }
   private initForm(): void{
-    this.addBookForm = new FormGroup({
-      title: new FormControl('Book number 101', [Validators.required, Validators.minLength(10)]),
-      author: new FormControl(null  ,Validators.required),
-      totalPages: new FormControl(476),
-      price: new FormGroup({
-        value: new FormControl(),
-        currency: new FormControl('INR')
+    this.addBookForm = this._formBuilder.group({
+      title: ['this is defauld with multi validator', [Validators.required, Validators.minLength(10)]],
+      author: ['this author with validation', Validators.required],
+      totalPages: '',
+      price: this._formBuilder.group({
+        value: '',
+        currency: '',
       }),
-      publishedOn: new FormControl(new Date()),
-      published: new FormControl(true),
-      formatType: new FormControl(),
-      pdfFormat: new FormControl(),
-      docFormat: new FormControl(),
+      publishedOn: '',
+      published: '',
+      formatType: '',
+      pdfFormat: '',
+      docFormat: '',
+      authors: this._formBuilder.array([
+        this.getAuthorControl(),
+        this.getAuthorControl()
+      ])
+
     });
   }
+
+  private getAuthorControl(): FormGroup {
+    return this._formBuilder.group({
+      fullName: 'Default Full Name',
+    });
+  }
+
 
   Currencys = [
     { value: 'USD', viewValue: 'United States Dollar' },

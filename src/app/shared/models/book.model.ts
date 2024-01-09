@@ -29,5 +29,6 @@ export class BookModel {
   public price: { currency: string;  value: number } = { currency: 'USD', value: 0 };
   public published: boolean;
   public publishedOn: Date;
+  public authors: string[];
 
 }

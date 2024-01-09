@@ -4,6 +4,8 @@
 {{addBookForm.get('value')?.value}}
 {{addBookForm.get('title')?.valid}}
 {{addBookForm.get('title')?.errors | json}}
+
+
 <!--refrence in html-->
 
 
@@ -30,12 +32,30 @@
       {{titleErrorMessage}}
     </mat-hint>
     <br>
-    <mat-form-field>
-      <input matInput placeholder="Book author" type="text" name="author" formControlName="author" >
+
+   <div formArrayName="authors">
+    <div *ngFor="let auth of authors.controls; let i=index;">
+      <mat-form-field appearance="fill" [formGroupName]="i">
+      <input matInput placeholder="Book author Full Name" type="text" name="authors" formControlName="fullName" >
       <mat-hint class="ErrorMsg">
         {{authorErrorMessage}}
       </mat-hint>
     </mat-form-field>
+    </div>
+   </div>
+
+<!--    <div formArrayName="authors">-->
+<!--&lt;!&ndash;      <div *ngFor="let auth of addBookForm.get('authors').controls; let i = index;">&ndash;&gt;-->
+<!--          <div *ngFor="let auth of authors.controls; let i=index;">-->
+<!--        <mat-form-field appearance="fill" [formGroupName]="i">-->
+<!--          <input matInput placeholder="Book author Full Name" type="text" name="authors" formControlName="fullName">-->
+<!--          <mat-hint class="ErrorMsg">-->
+<!--            {{authorErrorMessage}}-->
+<!--          </mat-hint>-->
+<!--        </mat-form-field>-->
+<!--      </div>-->
+<!--    </div>-->
+
     <br>
     <mat-form-field>
       <input matInput placeholder="Number of Pages" type="number" class="example-right-align" name="pages" required min="10" max="859" formControlName="totalPages">
@@ -78,3 +98,4 @@
     <button  [disabled]="addBookForm.invalid" mat-raised-button  color="primary" type="submit" style="margin-top: 10px">Save</button>
   </div>
 </form>
+{{addBookForm.value | json}}
