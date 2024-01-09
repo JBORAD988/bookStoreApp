@@ -12,15 +12,14 @@
     <mat-form-field>
       <input matInput placeholder="Book title" type="text" name="title" formControlName="title">
     </mat-form-field>
-    <mat-hint class="ErrorMsg" *ngIf="addBookForm.get('title')?.invalid && addBookForm.get('title')?.touched">
-      <span *ngIf="addBookForm.get('title')?.errors?.['required']">Please enter the book title</span>
-      <span *ngIf="addBookForm.get('title')?.errors?.['minlength']">Min Length is 5 Words  </span>
+    <mat-hint class="ErrorMsg">
+      {{titleErrorMessage}}
     </mat-hint>
     <br>
     <mat-form-field>
       <input matInput placeholder="Book author" type="text" name="author" formControlName="author" >
-      <mat-hint class="ErrorMsg" *ngIf="addBookForm.get('author')?.invalid && addBookForm.get('author')?.touched">
-        <span>Please Enter Authors name firs</span>
+      <mat-hint class="ErrorMsg">
+        {{authorErrorMessage}}
       </mat-hint>
     </mat-form-field>
     <br>
@@ -30,10 +29,8 @@
       <span matSuffix>.00</span>
     </mat-form-field>
 
-    <mat-hint class="ErrorMsg" *ngIf="addBookForm.get('totalPages')?.invalid && addBookForm.get('totalPages')?.touched">
-      <span *ngIf="addBookForm.get('totalPages')?.errors?.['required']">Please enter the number of pages</span>
-      <span *ngIf="addBookForm.get('totalPages')?.errors?.['min']">Min Length is 10 Page  </span>
-      <span *ngIf="addBookForm.get('totalPages')?.errors?.['max']">Max length is 859 Pages</span>
+    <mat-hint class="ErrorMsg">
+   {{pageEroorMessage}}
     </mat-hint>
     <br>
     <mat-form-field formGroupName="price">

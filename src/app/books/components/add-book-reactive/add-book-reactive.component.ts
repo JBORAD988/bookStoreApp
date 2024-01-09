@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {BookService} from "../../services/book.service";
 
 @Component({
@@ -13,6 +13,9 @@ export class AddBookReactiveComponent implements OnInit{
   @ViewChild('myForms') myForms : NgForm;
 
   public addBookForm: FormGroup ;
+  public titleErrorMessage: String;
+  public authorErrorMessage: String;
+  public pageEroorMessage: String;
 
   constructor(private _bookService: BookService) {
 
@@ -22,9 +25,24 @@ export class AddBookReactiveComponent implements OnInit{
     this.initForm();
     // this.updateFormValues(); //call from here or create button
 
-    console.log(this.addBookForm.controls['title']);
-    console.log(this.addBookForm.get('title'));
+    // console.log(this.addBookForm.controls['title']);
+    // console.log(this.addBookForm.get('title'));
 
+
+    const titleControl = this.addBookForm.get('title');
+    titleControl?.valueChanges.subscribe(x=>{
+      this.validateTitleControl(titleControl as AbstractControl);
+    });
+
+    const AuthorControl = this.addBookForm.get('author');
+    AuthorControl?.valueChanges.subscribe(x=>{
+      this.validateAuthorControl(AuthorControl as AbstractControl)
+    })
+
+    const PageControl = this.addBookForm.get('totalPages');
+    PageControl?.valueChanges.subscribe(x=>{
+      this.ValidatePageControl(PageControl as AbstractControl)
+    })
 
   }
 
@@ -73,4 +91,70 @@ export class AddBookReactiveComponent implements OnInit{
       alert("form invalid");
     }
   }
+
+
+
+  private validateTitleControl(titleControl: AbstractControl): void {
+    this.titleErrorMessage = '';
+
+    // Check if there are errors and if the control is touched or dirty
+    if (titleControl.errors && (titleControl.touched || titleControl.dirty)) {
+      // Check for the 'required' error
+      if (titleControl.errors['required']) {
+        this.titleErrorMessage = 'This is a required field';
+      } else {
+        // Check for the 'minlength' error
+        if (titleControl.errors['minlength']) {  // Corrected the spelling of 'minlength'
+          this.titleErrorMessage = 'Minimum length is ' + titleControl.errors?.['minlength']?.requiredLength;
+
+        }
+      }
+    }
+  }
+
+  private validateAuthorControl(AuthorControl: AbstractControl): void {
+    this.authorErrorMessage = '';
+
+    if (AuthorControl.errors && (AuthorControl.touched || AuthorControl.dirty) ) {
+      if(AuthorControl.errors['required']) {
+        this.authorErrorMessage = 'Please Enter Authors name first';
+      }
+    }
+  }
+
+  // private ValidatePageControl(PageControl: AbstractControl): void{
+  //   this.pageEroorMessage='';
+  //
+  //   if (PageControl.errors &&(PageControl.touched || PageControl.dirty)){
+  //     if (PageControl.errors['required']){
+  //       this.pageEroorMessage='Please enter the number of pages'
+  //     }else {
+  //       if (PageControl.errors['min']){
+  //         this.pageEroorMessage='Min Length is 10 Page'
+  //       }else {
+  //         this.pageEroorMessage='Max length is 859 Pages'
+  //       }
+  //     }
+  //     }
+  //   }
+
+
+  private ValidatePageControl(PageControl: AbstractControl): void{
+    this.pageEroorMessage='';
+
+    if (PageControl.errors &&(PageControl.touched || PageControl.dirty)){
+      if (PageControl.errors['required']){
+        this.pageEroorMessage='Please enter the number of pages'
+      }else if (PageControl.errors['min']){
+          this.pageEroorMessage='Min Length is 10 Page'
+        }else {
+          this.pageEroorMessage='Max length is 859 Pages'
+        }
+
+    }
+  }
+
 }
+
+
+
