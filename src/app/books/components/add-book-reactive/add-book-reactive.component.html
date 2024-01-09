@@ -9,6 +9,20 @@
 
 <form class="add-book-form" (ngSubmit)="saveBook()" [formGroup]="addBookForm">
   <div class="example-container">
+
+    <mat-radio-group class="toggal" aria-label="Select an option" formControlName="formatType">
+      <mat-radio-button value="pdf">Pdf</mat-radio-button>
+      <mat-radio-button value="doc">Doc</mat-radio-button>
+    </mat-radio-group>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Doc Format" type="text" name="title" formControlName="docFormat">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Pdf Format" type="text" name="title" formControlName="pdfFormat">
+    </mat-form-field>
+    <br>
     <mat-form-field>
       <input matInput placeholder="Book title" type="text" name="title" formControlName="title">
     </mat-form-field>

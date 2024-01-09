@@ -53,6 +53,11 @@ export class AddBookReactiveComponent implements OnInit{
       this.ValidateAmount(AmountControl as AbstractControl);
     });
 
+    const FormatTypeControl = this.addBookForm.get('formatType');
+    FormatTypeControl?.valueChanges.subscribe(x=>{
+      this.formatTypeChanged(x);
+    })
+
   }
 
 
@@ -64,21 +69,6 @@ export class AddBookReactiveComponent implements OnInit{
     })
 
   }
-
-  // private initForm(): void{
-  //   this.addBookForm = new FormGroup({
-  //     title: new FormControl('Book number 101', [Validators.required, Validators.minLength(10)]),
-  //     author: new FormControl('Jay Borad', Validators.required),
-  //     totalPages: new FormControl(476),
-  //     price: new FormGroup({
-  //       value: new FormControl(),
-  //       currency: new FormControl('INR')
-  //     }),
-  //     publishedOn: new FormControl(new Date()),
-  //     published: new FormControl(true),
-  //   });
-  // }
-
   private initForm(): void{
     this.addBookForm = new FormGroup({
       title: new FormControl('Book number 101', [Validators.required, Validators.minLength(10)]),
@@ -90,6 +80,9 @@ export class AddBookReactiveComponent implements OnInit{
       }),
       publishedOn: new FormControl(new Date()),
       published: new FormControl(true),
+      formatType: new FormControl(),
+      pdfFormat: new FormControl(),
+      docFormat: new FormControl(),
     });
   }
 
@@ -171,7 +164,22 @@ export class AddBookReactiveComponent implements OnInit{
     }
   }
 
+private formatTypeChanged(formatType: string): void{
+    const pdfControl = this.addBookForm.get('pdfFormat');
+    const docControl = this.addBookForm.get('docFormat');
+if (formatType ==='pdf'){
+  pdfControl?.addValidators([Validators.required, Validators.minLength(10)])
+  docControl?.clearValidators();
 
+}else if (formatType === 'doc'){
+ docControl?.addValidators(Validators.required)
+ pdfControl?.clearValidators();
+}
+
+pdfControl?.updateValueAndValidity();
+docControl?.updateValueAndValidity();
+
+}
 
 
 }
