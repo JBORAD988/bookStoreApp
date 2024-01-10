@@ -1,7 +1,7 @@
 import {AfterViewChecked, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {AuthorModel} from "../../shared/models/author.model";
+
 import {AuthorComponent} from "../../shared/components/author/author.component";
-import {Time} from "@angular/common";
+
 
 
 @Component({
@@ -39,8 +39,7 @@ export class HomeComponent implements OnInit , AfterViewChecked , OnDestroy{
 
   public count : number = 0;
   public count2 : boolean = true;
-  public address: string = 'India'
-  public obj: AuthorModel = {id:10 , name:'nitish'}
+  public obj: { fullName: string; id: number; address: string } = {id:10 , fullName:'nitish', address:'india'}
 
   private time: any;
 
@@ -51,7 +50,7 @@ export class HomeComponent implements OnInit , AfterViewChecked , OnDestroy{
     this.count++;
     this.count2 = !this.count2;
   this.obj.id = this.count++
-    this.address = 'Austrlia'
+    // thisa.address = 'Austrlia'
   }
 
   timer(): void{

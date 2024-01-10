@@ -1,12 +1,12 @@
 <h2 style="text-align: center">Add New Book using Reactive</h2>
 
-<button (click)="updateFormValues()"> Update values</button>
-{{addBookForm.get('value')?.value}}
-{{addBookForm.get('title')?.valid}}
-{{addBookForm.get('title')?.errors | json}}
+<!--<button (click)="updateFormValues()"> Update values</button>-->
+<!--{{addBookForm.get('value')?.value}}-->
+<!--{{addBookForm.get('title')?.valid}}-->
+<!--{{addBookForm.get('title')?.errors | json}}-->
 
 
-<!--refrence in html-->
+<!--&lt;!&ndash;refrence in html&ndash;&gt;-->
 
 
 <form class="add-book-form" (ngSubmit)="saveBook()" [formGroup]="addBookForm">
@@ -36,28 +36,22 @@
    <div formArrayName="authors">
     <div *ngFor="let auth of authors.controls; let i=index;">
       <mat-form-field appearance="fill" [formGroupName]="i">
-      <input matInput placeholder="Book author Full Name" type="text" name="authors" formControlName="fullName" >
+      <input matInput placeholder="Author Full Name" type="text" name="authors" formControlName="fullName" >
       <mat-hint class="ErrorMsg">
         {{authorErrorMessage}}
       </mat-hint>
     </mat-form-field>
+      <mat-form-field style="margin-right: 10px; margin-left: 10px" appearance="fill" [formGroupName]="i">
+        <input matInput placeholder="Authors Address" type="text" name="address" formControlName="address" >
+        <mat-hint class="ErrorMsg">
+          {{authorErrorMessage}}
+        </mat-hint>
+      </mat-form-field>
       <button class="button" mat-raised-button color="primary" (click)="RemoveAuthor(i)">Remove</button>
     </div>
      <button class="button" mat-raised-button color="primary" (click)="AddMoreAuthor()">Add More</button>
 
    </div>
-
-<!--    <div formArrayName="authors">-->
-<!--&lt;!&ndash;      <div *ngFor="let auth of addBookForm.get('authors').controls; let i = index;">&ndash;&gt;-->
-<!--          <div *ngFor="let auth of authors.controls; let i=index;">-->
-<!--        <mat-form-field appearance="fill" [formGroupName]="i">-->
-<!--          <input matInput placeholder="Book author Full Name" type="text" name="authors" formControlName="fullName">-->
-<!--          <mat-hint class="ErrorMsg">-->
-<!--            {{authorErrorMessage}}-->
-<!--          </mat-hint>-->
-<!--        </mat-form-field>-->
-<!--      </div>-->
-<!--    </div>-->
 
     <br>
     <mat-form-field>
@@ -101,4 +95,3 @@
     <button  [disabled]="addBookForm.invalid" mat-raised-button  color="primary" type="submit" style="margin-top: 10px">Save</button>
   </div>
 </form>
-{{addBookForm.value | json}}

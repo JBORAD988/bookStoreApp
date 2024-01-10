@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild,AfterViewChecked} from '@angular/core';
 import {BookService} from "../../services/book.service";
-import {BookModel} from "../../../shared/models/book.model";
+import {BookModel} from "../../models/book.model";
 import {NgForm} from "@angular/forms";
 
 @Component({
@@ -27,7 +27,7 @@ export class AddBookComponent implements OnInit , AfterViewChecked{
     this.model.title='DemoBook';
     // this.model.author='DemoAuthor';
     // this.model.totalPages= 703 ;
-    this.model.price.value = 200;
+    this.model.price.Value = 200;
     this.model.price.currency = 'INR'
     this.model.publishedOn= new Date()
     this.model.published = true;

@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
+import {AbstractControl, FormArray, FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 import {BookService} from "../../services/book.service";
-import {A} from "@angular/cdk/keycodes";
 
 @Component({
   selector: 'app-add-book-reactive',
@@ -97,7 +96,8 @@ export class AddBookReactiveComponent implements OnInit{
 
   private getAuthorControl(): FormGroup {
     return this._formBuilder.group({
-      fullName: 'Default Full Name',
+      fullName: '',
+      address:''
     });
   }
 
@@ -125,7 +125,9 @@ export class AddBookReactiveComponent implements OnInit{
     console.log(this.addBookForm.value);
 
     if (this.addBookForm.valid){
-      this._bookService.addBook(this.addBookForm.value);
+      this._bookService.addBook(this.addBookForm.value).subscribe(x=>{
+        console.log(x);
+      });
     }else {
       alert("form invalid");
     }

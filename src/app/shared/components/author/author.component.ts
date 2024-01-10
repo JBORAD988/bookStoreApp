@@ -8,7 +8,7 @@ import {
   OnInit,
   SimpleChanges
 } from '@angular/core';
-import {AuthorModel} from "../../models/author.model";
+import {AuthorModel} from "../../../books/models/author.model";
 import {AuthorsAddressComponent} from "../authors-address/authors-address.component";
 
 @Component({
@@ -26,7 +26,7 @@ export class AuthorComponent implements OnInit , OnChanges , DoCheck, AfterConte
   @ContentChild(AuthorsAddressComponent) authAddress: AuthorsAddressComponent;
   @Input() data: number ;
   @Input() data2: boolean;
-  @Input() author: AuthorModel;
+  @Input() author: AuthorModel[];
 
     public Counter2: number= 0;
 

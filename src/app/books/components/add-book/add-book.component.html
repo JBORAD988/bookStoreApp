@@ -35,7 +35,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Book author" type="text" name="author" [(ngModel)]="model.author" required #bookAuthor="ngModel">
+    <input matInput placeholder="Book author" type="text" name="author" [(ngModel)]="model.authors" required #bookAuthor="ngModel">
 <!--    <mat-hint class="ErrorMsg" [hidden]="bookAuthor.valid">Please enter Authors Name</mat-hint>-->
     <mat-hint class="ErrorMsg" *ngIf="bookAuthor.invalid && bookAuthor.touched">Please enter Authors Name</mat-hint>
   </mat-form-field>
@@ -52,7 +52,7 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput placeholder="Book Price" type="number" class="example-right-align"  name="price" [(ngModel)]="model.price.value" required #bookPrice="ngModel">
+    <input matInput placeholder="Book Price" type="number" class="example-right-align"  name="price" [(ngModel)]="model.price.Value" required #bookPrice="ngModel">
     <span matPrefix>$&nbsp;</span>
     <span matSuffix>.00</span>
     <mat-hint class="ErrorMsg" [hidden]="bookPrice.valid">Please enter Amount</mat-hint>
