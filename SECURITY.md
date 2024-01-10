@@ -7,10 +7,10 @@ currently being supported with security updates.
 
 | Version  | Supported          |
 | -------  | ------------------ |
-| 16.2.0   | :@angular/core: |
-| 16.2.12  | :@angular/cdk:                |
-| 21.2.0   | :Nodejs: |
-| 10.2.3   | :NPM:                |
+| 16.2.0   | @angular/core |
+| 16.2.12  | @angular/cdk                |
+| 21.2.0   | Nodejs            |
+| 10.2.3   | NPM               |
 
 ## Reporting a Vulnerability
 
